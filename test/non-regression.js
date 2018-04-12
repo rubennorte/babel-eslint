@@ -1210,6 +1210,14 @@ describe("verify", () => {
     );
   });
 
+  it("template with arrow returning template #603", () => {
+    verifyAndAssertMessages(
+      "var a = `${() => {\n    `${''}`\n}}`;",
+      { indent: 1 },
+      []
+    );
+  });
+
   describe("decorators #72", () => {
     it("class declaration", () => {
       verifyAndAssertMessages(
